@@ -21,6 +21,7 @@ Modifiers DO modify the world and don't select any chunks.
 - [ChestFiller](./modifiers/ChestFiller.groovy) | Fill all chests with the specified item(s)
 - [ReplaceBiomes](./modifiers/ReplaceBiomes.groovy) | Replace one or more biomes with another biome
 - [ReplaceBlocks](./modifiers/ReplaceBlocks.groovy) | Replace one or more blocks with another block
+- [ReplaceBlockPairs](./modifiers/ReplaceBlockPairs.groovy) | Perform multiple block replacements with unique source & destination blocks
 
 ## What about a filter that does xyz?
 
