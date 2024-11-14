@@ -9,7 +9,7 @@ import net.querz.nbt.CompoundTag
  * @difficulty INTERMEDIATE
  */
 static void apply(ChunkData data) {
-//Specify blocks here as comma-separated pairs in the format 'source:original_block': 'source:new_block'
+    // Specify blocks here as comma-separated pairs in the format 'source:original_block': 'source:new_block'
     def blockpairs = ['byg:red_rock': 'byg:travertine', 'byg:aspen_log': 'byg:pendorite_block']
     
     for (section in data.region()?.data?.getListTag("sections") as List<CompoundTag>) {
