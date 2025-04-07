@@ -22,11 +22,11 @@ They can be used in the `Change NBT (Ctrl + N)` dialog of MCA.
 > As always when using MCA Selector, make a backup before using!
 
 - [ChestFiller](./modifiers/ChestFiller.groovy) | Fill all chests with the specified item(s)
-- [ReplaceBiomePairs](./modifiers/ReplaceBiomePairs.groovy) | Perform multiple biome replacements with unique source &
-  destination biomes
+- [ReplaceBiomePairs](./modifiers/ReplaceBiomePairs.groovy) by [@Royal-Terrapin](https://github.com/Royal-Terrapin) |
+  Perform multiple biome replacements with unique source & destination biomes
 - [ReplaceBiomes](./modifiers/ReplaceBiomes.groovy) | Replace one or more biomes with another biome
-- [ReplaceBlockPairs](./modifiers/ReplaceBlockPairs.groovy) | Perform multiple block replacements with unique source &
-  destination blocks
+- [ReplaceBlockPairs](./modifiers/ReplaceBlockPairs.groovy) by [@Royal-Terrapin](https://github.com/Royal-Terrapin) |
+  Perform multiple block replacements with unique source & destination blocks
 - [ReplaceBlocks](./modifiers/ReplaceBlocks.groovy) | Replace one or more blocks with another block
 
 ## What about a filter that does xyz?
