@@ -1,82 +1,51 @@
+import groovy.transform.Field
 import net.querz.mcaselector.io.mca.ChunkData
 import net.querz.nbt.*
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.codehaus.groovy.runtime.typehandling.GroovyCastException
 
-/**
- * Adds the items in `itemsToAdd` to all chests.
- * By default, the items are added to random empty slots and will not change existing items.
- *
- * By editing this script, it is possible to add items to other containers
- * and to specify exactly how the item(s) should be added.
- *
- * IMPORTANT: When used as chunk filter, this will not modify the chest contents!
- *
- * @type Change NBT (Ctrl + N) or Chunk Filter (Ctrl + F)
- * @difficulty ADVANCED
- * @return true if any chests were modified
- */
-static boolean run(ChunkData data) {
-    var LOGGER = LogManager.getLogger("ChestFiller")
-    LOGGER.debug("Filling Chests in Chunk {}", data.region()?.getAbsoluteLocation())
-    var clearChests = false // if true, clears all items in chests before adding new items
-    var itemsToAdd = [ // example items to add
-                       new ContainerItem("minecraft:diamond", 8),
-                       new ContainerItem("minecraft:elytra"),
-                       ContainerItem
-                           .of('{"id":"minecraft:diamond_sword"}'), // 'count', 'Slot' and 'components' are optional
-                       ContainerItem
-                           .of(
-                               '{"id":"minecraft:enchanted_book","count":3,' +
-                               '"components":{"minecraft:stored_enchantments":' +
-                               '{"levels":{"minecraft:blast_protection":4,"minecraft:depth_strider":3}}}'
-                           ),
-                       ContainerItem.of(
-                           new CompoundTag(
-                               [
-                                   "id"        : StringTag.valueOf("minecraft:enchanted_golden_apple"),
-                                   "Slot"      : ByteTag.valueOf(20 as byte),
-                                   "components": new CompoundTag(
-                                       [
-                                           "minecraft:custom_name": StringTag.valueOf('{"text":"God Apple"}'),
-                                       ]
-                                   )
-                               ]
-                           )
-                       )
-    ]
+@Field Logger LOGGER = LogManager.getLogger("ChestFiller")
 
-    var changed = false
-    var blockEntities = data.region()?.data?.getListTag("block_entities")
+boolean run(ChunkData data) {
+    LOGGER.debug("Filling Chests in Chunk {}", data.region?.getAbsoluteLocation())
+
+    var modified = false
+    var blockEntities = data.region?.data?.getListTag("block_entities")
     if (!blockEntities) return false
     for (blockEntity in blockEntities as List<CompoundTag>) {
         if (blockEntity.getString("id") != "minecraft:chest") continue
         LOGGER
             .debug(
-                "Chest found at {}, {}, {}",
+                "Chest at {}, {}, {}",
                 blockEntity.getIntTag("x"),
                 blockEntity.getIntTag("y"),
                 blockEntity.getIntTag("z")
             )
-        if (clearChests) blockEntity.getListTag("Items")?.clear()
-        for (item in itemsToAdd) {
-            LOGGER.debug("Adding ${item.count} '${item.id}' to chest")
-            addContainerItem(blockEntity, item.copy(), ConflictType.SKIP, InsertionType.RANDOM)
+        if (clearChests && blockEntity.getListTag("Items").size()) {
+            blockEntity.getListTag("Items")?.clear()
+            modified = true
         }
-        changed = true
+        for (item in itemsToAdd) {
+            var success = addContainerItem(blockEntity, item.copy(), ConflictType.SKIP, InsertionType.RANDOM)
+            if (success) {
+                LOGGER.debug("Added ${item.count} '${item.id}' to chest")
+                modified = true
+            }
+        }
     }
-    return changed
+    return modified
 }
 
-static void apply(ChunkData data) {
+void apply(ChunkData data) {
     filter(data)
 }
 
-static boolean filter(ChunkData data) {
+boolean filter(ChunkData data) {
     try {
         return run(data)
     } catch (e) {
-        LogManager.getLogger("ChestFiller").error("Error running ChestFiller script", e)
+        LOGGER.error("Error running ChestFiller script", e)
         throw e
     }
 }
@@ -210,3 +179,46 @@ enum InsertionType {
     LAST, // last empty slot, else last slot
     RANDOM // random empty slot, else random slot
 }
+
+/**                !! CODE ABOVE !!                **/
+/** Usually, you don't need to edit anything here. **/
+
+
+/**
+ * Adds the items in `itemsToAdd` to all chests.
+ * By default, the items are added to random empty slots and will not change existing items.
+ *
+ * By editing this script, it is possible to add items to other containers
+ * and to specify exactly how the item(s) should be added.
+ *
+ * IMPORTANT: When used as chunk filter, this will not modify the chest contents
+ * and instead only select the chunks where any changes would occur!
+ *
+ * @type Change NBT (Ctrl + N) or Chunk Filter (Ctrl + F)
+ * @version 1.20.5+
+ */
+@Field Boolean clearChests = false // if true, clears all items in chests before adding new items
+@Field List<ContainerItem> itemsToAdd = [
+    // example items to add
+    new ContainerItem("minecraft:diamond", 8),
+    new ContainerItem("minecraft:elytra"),
+    ContainerItem.of('{"id":"minecraft:diamond_sword"}'), // 'count', 'Slot' and 'components' are optional
+    ContainerItem.of(
+        '{"id":"minecraft:enchanted_book","count":3,' +
+        '"components":{"minecraft:stored_enchantments":' +
+        '{"levels":{"minecraft:blast_protection":4,"minecraft:depth_strider":3}}}'
+    ),
+    ContainerItem.of(
+        new CompoundTag(
+            [
+                "id"        : StringTag.valueOf("minecraft:enchanted_golden_apple"),
+                "Slot"      : ByteTag.valueOf(20 as byte),
+                "components": new CompoundTag(
+                    [
+                        "minecraft:custom_name": StringTag.valueOf('{"text":"God Apple"}'),
+                    ]
+                )
+            ]
+        )
+    )
+]
