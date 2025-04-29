@@ -11,6 +11,7 @@ Filters do not modify the world, they only select the chunks where the filter is
 They can be used in the `Filter chunks (Ctrl + F)` dialog of MCA.
 
 - [BlockEntityCounter](./filters/BlockEntityCounter.groovy) | Output the amount of a certain block entity to a file
+- [ChestFiller](./modifiers/ChestFiller.groovy) | Select all chunks where changes would occur, when ran as a modifier
 - [ChunkCleanup](./filters/ChunkCleanup.groovy) by \_adamo_ |
   Select all chunks that contain none of the specified blocks, block entities or entities
 - [ContainsBiomes](./filters/ContainsBiomes.groovy) | Select all chunks that contain any of the specified biomes
