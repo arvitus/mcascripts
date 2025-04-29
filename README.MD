@@ -15,6 +15,8 @@ They can be used in the `Filter chunks (Ctrl + F)` dialog of MCA.
 - [ChunkCleanup](./filters/ChunkCleanup.groovy) by \_adamo_ |
   Select all chunks that contain none of the specified blocks, block entities or entities
 - [ContainsBiomes](./filters/ContainsBiomes.groovy) | Select all chunks that contain any of the specified biomes
+- [ContainsTopLevelTag](./filters/ContainsTopLevelTag.groovy) |
+  Select all chunks that contain the specified top level tag
 - [FindMobs](./filters/FindMobs.groovy) | Output the location of all mobs of the specified type to a file
 
 ### Modifiers (Change NBT)
