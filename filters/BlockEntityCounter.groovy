@@ -10,8 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger
 @Field Logger LOGGER = LogManager.getLogger("BlockEntityCounter")
 @Field AtomicInteger counter = new AtomicInteger(0)
 
-void before() {}
-
 boolean filter(ChunkData data) {
     var blockEntityCount = data.region?.data?.getListOrDefault("block_entities", new ListTag())
         ?.findAll { CompoundTag it -> it.getString("id") == blockEntityId }?.size()
