@@ -114,7 +114,7 @@ boolean filter(ChunkData data) {
     "minecraft:snow_golem",
     "minecraft:endermite",
     "minecraft:breeze",
-    "mineceaft:phantom",
+    "minecraft:phantom",
     "minecraft:ravager",
     "minecraft:skeleton_horse",
     "minecraft:wandering_trader",
