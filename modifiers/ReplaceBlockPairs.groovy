@@ -25,7 +25,7 @@ void apply(ChunkData data) {
  * @version 1.18+
  */
 @Field Map<String, String> blockPairs = [
-    //"source:block_from": "source:block_to",
+    //"source:block_from": "destination:block_to",
     "minecraft:dirt" : "minecraft:diamond_block",
     "minecraft:water": "minecraft:lava"
 ]
