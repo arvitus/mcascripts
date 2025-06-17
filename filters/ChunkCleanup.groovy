@@ -32,7 +32,7 @@ boolean filter(ChunkData data) {
  * Selects all chunks that contain none of the specified blocks, block entities or entities.
  *
  * @type Chunk Filter (Ctrl + F)
- * @version 1.17+
+ * @version 1.18+
  */
 @Field List<String> blockIds = [
     "minecraft:beacon",

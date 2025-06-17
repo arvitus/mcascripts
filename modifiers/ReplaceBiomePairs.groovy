@@ -23,7 +23,7 @@ void apply(ChunkData data) {
  * Replaces the original biome in each biome pair with its respective destination biome.
  *
  * @type Change NBT (Ctrl + N)
- * @version 1.17+
+ * @version 1.18+
  */
 @Field Map<String, String> biomePairs = [
     //"minecraft:biome_from": "minecraft:biome_to",

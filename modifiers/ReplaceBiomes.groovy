@@ -23,7 +23,7 @@ void apply(ChunkData data) {
  * Replaces all biomes in `biomesFrom` with `biomeTo`.
  *
  * @type Change NBT (Ctrl + N)
- * @version 1.17+
+ * @version 1.18+
  */
 @Field List<String> biomesFrom = ["minecraft:forest", "minecraft:birch_forest"]
 @Field String biomeTo = "minecraft:plains"

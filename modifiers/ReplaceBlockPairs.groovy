@@ -22,7 +22,7 @@ void apply(ChunkData data) {
  * Note: Block states are not updated, only the block name is changed.
  *
  * @type Change NBT (Ctrl + N)
- * @version 1.17+
+ * @version 1.18+
  */
 @Field Map<String, String> blockPairs = [
     //"source:block_from": "source:block_to",

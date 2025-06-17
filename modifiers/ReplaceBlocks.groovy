@@ -23,7 +23,7 @@ void apply(ChunkData data) {
  * Note: Block states are not updated, only the block name is changed.
  *
  * @type Change NBT (Ctrl + N)
- * @version 1.17+
+ * @version 1.18+
  */
 @Field List<String> blocksFrom = ["minecraft:dirt", "minecraft:coarse_dirt"]
 @Field String blockTo = "minecraft:stone"
