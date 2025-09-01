@@ -6,7 +6,7 @@ import net.querz.nbt.CompoundTag
 
 String getMapping(String key, int version) {
     var mapping = versionMappings[key]
-    return mapping[mapping.keySet().max { it <= version }]
+    return mapping[mapping.keySet().findAll { it <= version }.max()]
 }
 
 void apply(ChunkData data) {
