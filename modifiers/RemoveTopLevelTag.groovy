@@ -2,7 +2,13 @@ import groovy.transform.Field
 import net.querz.mcaselector.io.mca.ChunkData
 
 void apply(ChunkData data) {
-    data.region?.data?.remove(tagName)
+    var regionData = data.region?.data
+
+    var version = regionData?.getInt("DataVersion") ?: 0
+    if (version < 1451)  // 1451 = The Flattening (1.13)
+        regionData?.getCompoundTag("Level")?.remove(tagName)
+    else
+        regionData?.remove(tagName)
 }
 
 /**                !! CODE ABOVE !!                **/
@@ -10,7 +16,8 @@ void apply(ChunkData data) {
 
 
 /**
- * Removes the specified NBT Tag from the top level of the chunk data.
+ * Removes the specified NBT Tag from the top level of the chunk content.
+ * Content being the actual data, pre 1.18 this was inside the "Level" tag.
  *
  * @type Change NBT (Ctrl + N)
  * @version any
