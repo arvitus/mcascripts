@@ -5,7 +5,7 @@ boolean filter(ChunkData data) {
     var regionData = data.region?.data
 
     var version = regionData?.getInt("DataVersion") ?: 0
-    if (version < 1451) { // 1451 = The Flattening (1.13)
+    if (version < 2844) { // 2844 = Level tag removal (1.18)
         return regionData?.getCompoundTag("Level")?.containsKey(tagName)
     }
     return regionData?.containsKey(tagName)
