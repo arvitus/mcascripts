@@ -27,6 +27,7 @@ They can be used in the `Change NBT (Ctrl + N)` dialog of MCA.
 > As always when using MCA Selector, make a backup before using!
 
 - [ChestFiller](./modifiers/ChestFiller.groovy) | Fill all chests with the specified item(s)
+- [RemoveEntities](./modifiers/RemoveEntities.groovy) | Remove specific entities from chunks
 - [RemoveLightingInfo](./modifiers/RemoveLightingInfo.groovy) by [@Querz](https://github.com/querz) |
   Remove all lighting information from chunks, which can help with lighting issues
 - [RemoveTopLevelTag](./modifiers/RemoveTopLevelTag.groovy) |
