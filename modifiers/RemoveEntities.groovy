@@ -50,7 +50,9 @@ void apply(ChunkData chunkData) {
 
 /**
  * Removes the specified entities.
- * If "inverted" is true, it keeps only the specified entities.
+ * If "inverted" is true, it removes all non-specified entities.
+ *
+ * NOTE: Entity ids have changed over time, so make sure to use the correct ids for your version.
  *
  * @type Change NBT (Ctrl + N)
  * @version probably any
