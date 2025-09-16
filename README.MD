@@ -44,10 +44,10 @@ They can be used in the `Change NBT (Ctrl + N)` dialog of MCA.
 The scripts may support different Minecraft versions. In the script description you can find the versions that are
 supposed to work. However, not all versions have always been tested and due to multiple changes over the years to how
 chunk data is stored it's often difficult to track and cover all changes correctly. So if you encounter a script that
-does not seem to work on a version it's supposed to, please [open an issue](/issues), so I can fix it, thanks :)
+does not seem to work on a version it's supposed to, please [open an issue](//issues), so I can fix it, thanks :)
 *Also, if you want a script to support a version that it currently does not, please open an issue as well.*
 
 ## What about a filter that does xyz?
 
-If you need a filter that does xyz, please [open an issue](/issues), and I'll take it on when I have time.  
+If you need a filter that does xyz, please [open an issue](//issues), and I'll take it on when I have time.  
 You can also just create a PR if you want to add your own filters.
