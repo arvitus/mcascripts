@@ -6,7 +6,7 @@ import net.querz.nbt.ListTag
 import net.querz.nbt.Tag
 
 static @Field Map<String, Map<Integer, String>> versionMappings = [
-    "entities": [0: "Level.Entities", 2844: "Entities"], // 2844 = Level tag removal (1.18)
+    "entities": [0: "Level.Entities", 2844: "entities"], // 2844 = Level tag removal (1.18)
 ]
 
 static String getMapping(String key, int version) {
