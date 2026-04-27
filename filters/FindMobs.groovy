@@ -36,7 +36,7 @@ boolean filter(ChunkData data) {
 void after() {
     println("FindEntities: There have been ${foundEntities.size()} matching foundEntities found in the world.")
     LOGGER.info("There have been ${foundEntities.size()} matching foundEntities found in the world.")
-    
+
     fileName = fileName.replaceFirst("^~/*", System.getProperty("user.home"))
     var file = new File(fileName)
     if (!file.exists()) file.createNewFile()
