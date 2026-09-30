@@ -23,10 +23,10 @@ They can be used in the `Filter chunks (Ctrl + F)` dialog of MCA.
 
 Modifiers DO modify the world and don't select any chunks.
 They can be used in the `Change NBT (Ctrl + N)` dialog of MCA.
-> [!WARNING]  
+> [!WARNING]
 > As always when using MCA Selector, make a backup before using!
 
-- [ChestFiller](./modifiers/ChestFiller.groovy) | Fill all chests with the specified item (s)
+- [ChestFiller](./modifiers/ChestFiller.groovy) | Fill all chests with the specified items
 - [DeleteStructureReference](./modifiers/DeleteStructureReference.groovy) | Remove all structure references and starts
   of the given structure IDs, with support for wildcards
 - [RemoveEntities](./modifiers/RemoveEntities.groovy) | Remove specific entities from chunks
