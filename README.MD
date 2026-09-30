@@ -34,6 +34,8 @@ They can be used in the `Change NBT (Ctrl + N)` dialog of MCA.
   Remove all lighting information from chunks, which can help with lighting issues
 - [RemoveTopLevelTag](./modifiers/RemoveTopLevelTag.groovy) |
   Remove the specified top level tag from all chunks
+- [RemoveVillagerOffers](./modifiers/RemoveVillagerOffers.groovy) | Removes the `Offers` tag from Villagers, causing
+  them to be regenerated.
 - [ReplaceBiomePairs](./modifiers/ReplaceBiomePairs.groovy) by [@Royal-Terrapin](https://github.com/Royal-Terrapin) |
   Perform multiple biome replacements with unique source & destination biomes
 - [ReplaceBiomes](./modifiers/ReplaceBiomes.groovy) | Replace one or more biomes with another biome
