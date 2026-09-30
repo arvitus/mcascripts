@@ -22,7 +22,7 @@ void after() {
     println("BlockEntityCounter: There are ${counter.get()} ${blockEntityId} in the world.")
     LOGGER.info("There are ${counter.get()} ${blockEntityId} in the world.")
 
-    fileName = fileName.replaceFirst("^~/*", System.getProperty("user.home"))
+    fileName = fileName.replaceFirst("^~/+", System.getProperty("user.home"))
     var file = new File(fileName)
     if (!file.exists()) file.createNewFile()
     file.write(counter.get() as String)
